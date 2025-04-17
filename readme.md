@@ -1,4 +1,4 @@
-# Team Knowledge Memory Bot 🧠💬
+# Team Memory Bot 🧠💬
 
 A Discord bot that captures, stores, and retrieves team knowledge using Mem0 AI for persistent memory storage.
 
