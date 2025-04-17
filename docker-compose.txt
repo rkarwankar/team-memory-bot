@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # Bot service
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: team-memory-bot
+    restart: unless-stopped
+    depends_on:
+      - db
+      - mem0
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+  # PostgreSQL database
+  db:
+    image: postgres:14-alpine
+    container_name: team-memory-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: team_memory
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+
+  # Mem0 Memory API (Simulated)
+  mem0:
+    build:
+      context: ./mem0
+      dockerfile: Dockerfile
+    container_name: team-memory-mem0
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - mem0_data:/app/data
+    env_file:
+      - .env
+
+  # Web Dashboard (Optional)
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    container_name: team-memory-dashboard
+    restart: unless-stopped
+    depends_on:
+      - db
+      - mem0
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
+  mem0_data:
