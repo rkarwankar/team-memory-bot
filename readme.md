@@ -185,7 +185,7 @@ python src/main.py
 /ask What's the status of the notification system?
 ```
 
-## 📸 Demo Video
+## 📹 Demo Video
 
 https://github.com/user-attachments/assets/bb07f74c-0379-45f3-8e8c-8d9813fdeefb
 
