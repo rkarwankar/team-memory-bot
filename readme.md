@@ -20,6 +20,8 @@ A Discord bot that captures, stores, and retrieves team knowledge using Mem0 AI 
 
 Team Knowledge Memory Bot transforms team conversations into a searchable knowledge base. It monitors Discord channels, extracts important information, and makes it easily retrievable using natural language queries. By connecting to Mem0 AI's memory system, it provides persistent storage of team knowledge across time.
 
+**Built in collaboaration with Bear Brown and Co, and Stellis Labs.**
+
 ## ✨ Features
 
 - 🤖 **Automatic Knowledge Extraction**: Identifies important information from team conversations
